@@ -1,0 +1,39 @@
+The project has been designed keeping the use cases in mind i.e. The input will be a list of items with base prices and the 
+output will be a list of items with appropriate taxes applied, and a summary of total sales tax and total Receipt cost.
+
+Keeping the above in mind, the following object model was designed. 
+
+The object model should work for above use case and should be easily extendible to more use cases.
+The main idea is to divide responsibilities between classes and follow Single Responsibility Principle. This makes sure that
+classes are not tightly coupled. 
+
+==BusinessObjects==
+
+Currency: To represent currencies like USD, CAD, etc.
+
+ItemType: To represent different item types like Food item, Medicine, etc. This is used to keep track of the fact that some items are 
+sales taxable and some are not.
+
+ItemOrigin: To represent various kinds of origin ( Imported Vs Non Imported). This is used to keep track that which item origin is 
+duty taxable and which is not.
+
+Price: To represent a price like "10 USD". 
+
+Item: To represent an item as it comes in a shop. For example, when an item arrives in a shop from a vendor, the following properties would be known
+a. Its origin ( Imported vs non imported), b. Its type (Food, medicine, etc), c. Its price and d. its description
+ 
+ 
+ItemReceiptEntry: To represent an entry in Receipt. For example "1 bottle of Perfume: 10.50". The idea is that ItemReceiptEntry contains
+information about an object and how much sales tax applies to it.
+
+Receipt: A collection of ItemReceiptEntry objects.
+
+==BusinessLogic==
+
+TaxManager: This class is responsible to calculate the taxes applicable to an Item. 
+It contains information about how much sales tax, import duty, etc is applicable and performs the logic of applying taxes to applicable Items.
+
+ReceiptCalculator: This class is responsible calculating a 'Receipt'. It provides utility methods to take a list of Item as input 
+and returns a Receipt object.
+
+ReceiptPrinter: This class is responsible for providing a receipt String in the desired format. It uses ReceiptCalculator to be able to get a Receipt.   

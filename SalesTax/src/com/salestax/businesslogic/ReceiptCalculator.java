@@ -1,6 +1,5 @@
 package com.salestax.businesslogic;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,14 +19,15 @@ public class ReceiptCalculator {
 	private TaxManager taxManager;
 	public ReceiptCalculator(TaxManager taxManager) {
 		ValidationHelper.validateForNull(taxManager, "taxManager");
+		this.taxManager = taxManager;
 	}
 	
 	public Receipt calculateReceipt(List<Item> itemList) {
-		//validate for null
+		ValidationHelper.validateForNull(itemList, "itemList");
+		ValidationHelper.validateIterableForNullEntries(itemList, "itemList"); //another option would be to ignore null items
 		List<ItemReceiptEntry> receiptEntries = new ArrayList<ItemReceiptEntry>();
 		for (Item item: itemList) {
-			BigDecimal totalTax = taxManager.calculateTax(item);
-			receiptEntries.add(new ItemReceiptEntry(item, totalTax));
+			receiptEntries.add(taxManager.calculateTax(item));
 		}
 		return new Receipt(receiptEntries);
 	}

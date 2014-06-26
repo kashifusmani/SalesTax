@@ -1,0 +1,11 @@
+1. The project was build on Java 7, so Java 7 is required to be on CLASSPATH or PATH variable (which ever applies).
+2. Run setup.sh under SalesTax folder ( You may need to chmod and give appropriate execution permissions)
+3. Once you run setup.sh, you should see some output on the console. The output is a result of Test data populated
+under SalesTax/src/com/salestax/businesslogic/ReceiptPrintTest.java
+4. ReceiptPrintTest.java can be modified with new test data. 
+
+
+
+
+2. SalesTax/lib folder should be on CLASSPATH so that the libraries are picked up by the compiler
+3. SalesTax/src and SalesTax/tst folder should be on build path(If using Eclipse) or CLASSPATH/PATH environment variable otherwise.

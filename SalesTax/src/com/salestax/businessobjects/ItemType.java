@@ -6,7 +6,7 @@ package com.salestax.businessobjects;
  *
  */
 public enum ItemType {
-	FOOD(false), MEDICINE(false), BOOK(false), PERFUME(true), OTHER(true);
+	FOOD(false), MEDICINE(false), BOOK(false), PERFUME(true), MUSIC_CD(true), OTHER(true);
 
 	private boolean isSalesTaxable;
 

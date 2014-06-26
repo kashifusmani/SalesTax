@@ -26,7 +26,7 @@ public class Receipt {
 	public BigDecimal getTotalSalesTax() {
 		BigDecimal totalSalesTax = new BigDecimal("0.0");
 		for (ItemReceiptEntry entry : receiptItems) {
-			totalSalesTax.add(entry.getSalesTax());
+			totalSalesTax = totalSalesTax.add(entry.getSalesTax());
 		}
 		return totalSalesTax;
 	}
@@ -34,7 +34,7 @@ public class Receipt {
 	public BigDecimal getReceiptTotalPrice() {
 		BigDecimal totalReceiptPrice = new BigDecimal("0.0");
 		for (ItemReceiptEntry entry : receiptItems) {
-			totalReceiptPrice.add(entry.getItemTotalPrice());
+			totalReceiptPrice = totalReceiptPrice.add(entry.getItemTotalPrice());
 		}
 		return totalReceiptPrice;
 	}

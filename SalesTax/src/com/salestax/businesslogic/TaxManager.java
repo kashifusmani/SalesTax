@@ -3,6 +3,7 @@ package com.salestax.businesslogic;
 import java.math.BigDecimal;
 
 import com.salestax.businessobjects.Item;
+import com.salestax.businessobjects.ItemReceiptEntry;
 import com.salestax.util.ValidationHelper;
 
 /**
@@ -19,19 +20,19 @@ public class TaxManager {
 	// The value above can be inject via constructor for cases , say , different province have different tax rate
 	// So each can have its own TaxManager
 	
-	public BigDecimal calculateTax(Item item) {
+	public ItemReceiptEntry calculateTax(Item item) {
 		ValidationHelper.validateForNull(item, "item");
 		BigDecimal totalTax = new BigDecimal("0.0");
 		
 		if (item.getItemType().getIsSalesTaxable()) {
-			totalTax.add(calculateSalesTax(item));
+			totalTax = totalTax.add(calculateSalesTax(item));
 		}
 		
 		if (item.getItemOrigin().getIsImportDutyTaxable()) {
-			totalTax.add(calculateImportDuty(item));
+			totalTax = totalTax.add(calculateImportDuty(item));
 		}
-		
-		return roundUptoNearestPointFive(totalTax);
+		BigDecimal roundedUpTax = roundUptoNearestPointFive(totalTax);
+		return new ItemReceiptEntry(item, roundedUpTax);
 	}
 	
 	private BigDecimal calculateSalesTax(Item item) {
@@ -42,7 +43,7 @@ public class TaxManager {
 		return item.getItemPrice().getUnitValue().multiply(IMPORT_DUTY_RATE);
 	}
 	
-	private BigDecimal roundUptoNearestPointFive(BigDecimal baseValue) {
+	protected BigDecimal roundUptoNearestPointFive(BigDecimal baseValue) {
 		 BigDecimal ceiledValue = new BigDecimal(Math.ceil(baseValue.divide(TAX_ROUND_UP_FACTOR).doubleValue()));
 		 return ceiledValue.multiply(TAX_ROUND_UP_FACTOR);
 	}
