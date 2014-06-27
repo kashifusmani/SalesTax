@@ -1,13 +1,35 @@
-1. The project was build on Java 7, so Java 7 is required to be on CLASSPATH or PATH variable (which ever applies).
-2. Open setup.sh, change APP_HOME (line 1) accordingly.
 
-2. Run setup.sh under SalesTax folder ( You may need to chmod and give appropriate execution permissions)
-3. Once you run setup.sh, you should see some output on the console. The output is a result of Test data populated
-under SalesTax/src/com/salestax/businesslogic/ReceiptPrintTest.java
-4. ReceiptPrintTest.java can be modified with new test data. 
+Setup Via Eclipse is recommended because it is easy and painless.Note that these instructions are for Windows 64 Bit Eclipse Kepler 4.3. 
+Other version may slightly vary.
 
+1. Download Java 7 from http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
 
+2. Download Eclipse from http://www.eclipse.org/epsilon/download/
 
+3. Once download is complete, unzip the file . Open the unzipped folder, open eclipse.exe
 
-2. SalesTax/lib folder should be on CLASSPATH so that the libraries are picked up by the compiler
-3. SalesTax/src and SalesTax/tst folder should be on build path(If using Eclipse) or CLASSPATH/PATH environment variable otherwise.
+4. Now, download the code base from https://github.com/kashifusmani/SalesTax/ . Note that there is a 'Download ZIP' button 
+to the lower right corner of the github page.
+
+5. Once download is complete, extract the ZIP file at a location of your choice. The unzipped folder should be called 'SalesTax-master'. Within 
+this folder there should be another folder called 'SalesTax-master' and with in this one there is folder called 'SalesTax'. 
+This is where the code resides. Remember this location for step 7.
+
+6. Now go back to Eclipse, click File -> New -> Project , and then select Java Project. Click Next. 
+
+7. Uncheck 'Use default location', click on Browse button and navigate to folder SalesTax (from step 5) and click OK.
+
+8. Eclipse should auto-populate the 'Project name:' and 'Location:' field. Click Next.
+
+9. In the first tab  called 'Source', src, tst and lib folders (all these 3 reside under SalesTax folder) should be populated.  At the bottom of
+this view, 'Default output folder:'  should be set to SalesTax/bin. 
+
+10. Click on Third tab called 'Libraries'. It must be already populated with jars under SalesTax/lib folder. 
+If not, click on 'Add External JARs...' button,navigate to SalesTax/lib and add commons-lang3-3.3.2.jar, junit-4.10.jar and mockito-all-1.9.5.jar. 
+It should also be populated with JRE 7 system Library. If not, click 'Add Library' and add java library.
+
+11. Click Finish. Open 'Package Explorer' view in Eclipse.
+The src folder should not show any red marks (which indicate compiler errors). If it does, then one or 
+more libraries mentioned in step 10 could be missing.  
+ 
+ 12. Open tst/com/salestax/businesslogic/ReceiptPrintTest.java . Run it, you should see the output in the console.
