@@ -1,4 +1,6 @@
 1. The project was build on Java 7, so Java 7 is required to be on CLASSPATH or PATH variable (which ever applies).
+2. Open setup.sh, change APP_HOME (line 1) accordingly.
+
 2. Run setup.sh under SalesTax folder ( You may need to chmod and give appropriate execution permissions)
 3. Once you run setup.sh, you should see some output on the console. The output is a result of Test data populated
 under SalesTax/src/com/salestax/businesslogic/ReceiptPrintTest.java
