@@ -17,7 +17,7 @@ public class TaxManager {
 	private final BigDecimal IMPORT_DUTY_RATE = new BigDecimal("0.05");
 	private final BigDecimal TAX_ROUND_UP_FACTOR = new BigDecimal("0.05");
 	
-	// The value above can be injected via constructor for cases , say , different province have different tax rate
+	// The values above can be injected via constructor for cases , say , different province have different tax rate
 	// So each can have its own TaxManager
 	
 	public ItemReceiptEntry calculateTax(Item item) {

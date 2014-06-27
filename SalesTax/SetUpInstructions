@@ -29,7 +29,9 @@ If not, click on 'Add External JARs...' button,navigate to SalesTax/lib and add 
 It should also be populated with JRE 7 system Library. If not, click 'Add Library' and add java library.
 
 11. Click Finish. Open 'Package Explorer' view in Eclipse.
-The src folder should not show any red marks (which indicate compiler errors). If it does, then one or 
+The src folder should not show any red marks (which indicates compiler errors). If it does, then one or 
 more libraries mentioned in step 10 could be missing.  
  
- 12. Open tst/com/salestax/businesslogic/ReceiptPrintTest.java . Run it, you should see the output in the console.
+12. Open tst/com/salestax/businesslogic/ReceiptPrintTest.java . Run it, you should see the output in the console.
+
+13. If this set up does not work, feel free to reach out to me and I will help out to make the setup.
